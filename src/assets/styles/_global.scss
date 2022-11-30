@@ -19,24 +19,35 @@ body {
 }
 
 body {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    font-family: var(--font-family, sans-serif);
-    font-weight: 400;
-    line-height: 1.2;
-    font-size: 16px;
-    color: var(--main-color);
-    background-color: var(--main-bg-color);
-    overflow-x: hidden !important;
-  
-    &.body-locked {
-      overflow: hidden;
-    }
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-family, sans-serif);
+  font-weight: 400;
+  line-height: 1.2;
+  font-size: 16px;
+  color: var(--main-color);
+  background-color: var(--main-bg-color);
+  overflow-x: hidden !important;
+
+  &.body-locked {
+    overflow: hidden;
+  }
+}
+
+section {
+  z-index: 10;
 }
 
 footer {
-    margin-top: auto;
+  margin-top: auto;
+  z-index: 10;
+}
+
+.section-title--dublicated {
+  span {
+    z-index: -1;
+  }
 }
 
 a {
@@ -44,31 +55,31 @@ a {
 }
 
 ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 fieldset {
-    border: 0;
-    padding: 0;
-    margin: 0;
+  border: 0;
+  padding: 0;
+  margin: 0;
 }
 
 button {
-    border: 0;
-    padding: 0;
-    background-color: transparent;
+  border: 0;
+  padding: 0;
+  background-color: transparent;
 }
 
 h1,h2,h3,h4,h5,h6,p {
-    margin: 0;
+  margin: 0;
 }
 
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
 input:-webkit-autofill:active  {
-    -webkit-box-shadow: 0 0 0 0 transparent inset !important;
-    box-shadow: 0 0 0 0 transparent inset !important;
+  -webkit-box-shadow: 0 0 0 0 transparent inset !important;
+  box-shadow: 0 0 0 0 transparent inset !important;
 }

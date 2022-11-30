@@ -1,0 +1,152 @@
+.invalid-animation {
+  animation: shake 0.5s 0.1s linear;
+}
+
+.disabled {
+  opacity: .4;
+  cursor: default;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+
+  25% {
+    transform: translateX(-10px);
+  }
+
+  50% {
+    transform: translateX(10px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.invalid-control {
+  color: var(--accent);
+  &::placeholder {
+    color: var(--accent);
+  }
+
+  & + label {
+    color: var(--accent);
+  }
+
+  @extend .invalid-animation;
+}
+
+.form {
+  &__content {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-gap: 30px;
+    margin-bottom: 40px;
+
+    fieldset:first-child {
+      @extend .flex-wrap;
+      align-items: center;
+
+      input {
+        width: calc(50% - 15px);
+
+        &:first-child {
+          margin-right: auto;
+        }
+
+        padding: 10px 0;
+        border: 0;
+        border-bottom: 1px solid var(--white);
+
+        background-color: var(--primary);
+
+        @include m-b-down(635px) {
+          width: 90%;
+
+          &:first-child {
+            margin: 0;
+            margin-bottom: 20px;
+          }
+        }
+
+        @include m-b-mobile-lg-down {
+          width: 100%;
+        }
+
+        &.js-invalid-control {
+          @extend .invalid-control;
+        }
+      }
+
+      input,
+      input::placeholder {
+        font-weight: 500;
+        font-size: 14px;
+        line-height: 1;
+
+        color: var(--white);
+      }
+
+    }
+
+    input.js-invalid-control {
+      @extend .invalid-control;
+    }
+
+    input:disabled {
+      @extend .disabled;
+
+      & + label,
+      & + label::before {
+        @extend .disabled;
+      }
+    }
+
+    @extend .main-checkbox;
+  }
+
+  &__footer {
+    .status-message {
+      @extend .flex-wrap;
+      align-items: center;
+
+      font-size: 20px;
+      line-height: 1.2;
+
+      color: var(--white);
+
+      svg {
+        fill: var(--white);
+        margin-right: 25px;
+      }
+
+      span {
+        max-width: 205px;
+      }
+
+      @include m-b-mobile-lg-down {
+        svg {
+          margin-right: 15px;
+        }
+
+        span {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  &__submit {
+    border-color: var(--white);
+
+    span {
+      color: var(--white);
+    }
+
+    svg {
+      fill: var(--white);
+    }
+  }
+}

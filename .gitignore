@@ -1,6 +1,6 @@
 .DS_Store
 node_modules
-
+gsap-bonus.tgz
 
 # local env files
 .env.local

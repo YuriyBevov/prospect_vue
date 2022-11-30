@@ -1,0 +1,49 @@
+.loader-wrapper {
+  position: fixed;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  z-index: 102;
+
+  width: 50px;
+  height: 10px;
+}
+
+.loader {
+  width: 12px;
+  height: 12px;
+  background-color: var(--primary);
+  border-radius: 50%;
+  opacity: 0;
+  animation: bubblesFadeInOut 1.5s linear infinite forwards;
+
+  &--middle {
+    animation-delay: .4s;
+  }
+
+  &--right {
+    animation-delay: .6s;
+  }
+}
+
+@keyframes bubblesFadeInOut {
+  0% {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  45% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  55% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.2);
+  }
+}
