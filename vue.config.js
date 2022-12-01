@@ -11,5 +11,5 @@ module.exports = defineConfig({
 
   publicPath: process.env.NODE_ENV === 'production'
     ? '/prospect_vue/dist/'
-    : '/prospect_vue/dist/'
+    : '/'
 });
