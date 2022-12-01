@@ -31,7 +31,7 @@
         this.gsap.to(window, {
           duration: 1.5,
           scrollTo: {y: '.portfolio', offsetY: 40, autoKill: false},
-          //ease: "power0.easeNone",
+          ease: "power0.easeNone",
           onComplete: () => this.$emit('collapse')
         });
       },

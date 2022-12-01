@@ -75,7 +75,7 @@
           width: 100%;
         }
 
-        &.js-invalid-control {
+        &.invalid-control {
           @extend .invalid-control;
         }
       }
@@ -91,7 +91,7 @@
 
     }
 
-    input.js-invalid-control {
+    input.invalid-control {
       @extend .invalid-control;
     }
 

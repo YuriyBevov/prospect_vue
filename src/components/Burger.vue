@@ -1,5 +1,5 @@
 <template>
-    <button class="burger" type="button" aria-label="Меню">
+    <button class="burger" type="button" aria-label="Меню" @click="$emit('change-nav-visibility')">
         <span class="burger__line burger__line--top"></span>
         <span class="burger__line burger__line--middle"></span>
         <span class="burger__line burger__line--bottom"></span>
@@ -8,7 +8,20 @@
 
 <script>
     export default {
-        name: 'Burger'
+        name: 'Burger',
+
+        props: {
+            burgerState: String
+        },
+
+        data() {
+            return {
+                
+            }
+        },
+
+        methods: {
+        }
     }
 </script>
 
@@ -31,6 +44,6 @@
         }
 
         cursor: pointer;
-        z-index: 10;
+        //z-index: 10;
     }
 </style>

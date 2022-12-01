@@ -36,7 +36,7 @@
           <div class="hero__logo">
             <img :src="require(`@/assets/images/hero-logo.svg`)" alt="Логотип" width="900" height="660">
           </div>
-          <a class="anchor-link hero__arrow-down hidden" href="#" data-scroll-to="portfolio" aria-label="Скролл вниз" style="opacity: 1;">
+          <a @click.prevent="$emit('anchor', '#portfolio')" class="anchor-link hero__arrow-down hidden" href="#" data-scroll-to="portfolio" aria-label="Скролл вниз" style="opacity: 1;">
             <svg v-svg
               symbol="icon-hero-arrow"
               size="0 0 40 16"
@@ -142,7 +142,7 @@
         &:focus {
           .contact-helper {
             display: flex;
-            animation: fadeIn 0.5s ease-in forwards;
+            opacity: 1;
           }
         }
       }
@@ -162,14 +162,14 @@
         width: fit-content;
         height: 50px;
 
-        padding: 15px;
+        padding: 10px;
 
         border-radius: 4px;
         opacity: 0;
 
         color: var(--dark);
-        background-color: var(--white);
-        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+
+        /*transition: opacity var(--main-transition);
 
         &::before {
           position: absolute;
@@ -182,7 +182,7 @@
           border-radius: 4px;
           background-color: var(--white);
           z-index: -1;
-        }
+        }*/
 
         span {
           display: block;

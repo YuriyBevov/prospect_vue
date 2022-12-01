@@ -9,8 +9,13 @@
         <a href="mailto:pro-rek@info.ru" aria-label="Отправить письмо на почту">pro-rek@info.ru</a>
       </div>
       
-      <Nav />
-      <Burger />
+      <Nav 
+        :is-opened="navVisibility" 
+        @change-nav-visibility="navVisibility = !navVisibility"
+        @body-locker="$emit('body-locker')"
+        @anchor="setAnchorLink"
+      />
+      <Burger @change-nav-visibility="navVisibility = !navVisibility"/>
     </div>
   </header>
 </template>
@@ -24,7 +29,20 @@
     components: {
       Burger,
       Nav
+    },
+
+    data() {
+      return {
+        navVisibility: false,
+      }
+    },
+
+    methods: {
+      setAnchorLink(el) {
+        this.$emit('anchor', el)
+      }
     }
+
   }
 </script>
 
@@ -40,7 +58,6 @@
 
     padding: 30px 0;
 
-    will-change: auto;
     z-index: 99;
 
     &-logo {
@@ -58,6 +75,7 @@
       border-bottom: 0;
       padding: 0;
       margin: 0;
+      
       @include m-b-down(435px) {
         display: none !important;
       }

@@ -98,7 +98,7 @@
                     </div>
                 </li>
             </ul>
-            <a class="services__btn anchor-link main-btn" href="callback" data-scroll-to="callback"><span>Оставить заявку</span>
+            <a @click.prevent="$emit('anchor', '#callback')" class="services__btn anchor-link main-btn" href="#" ><span>Оставить заявку</span>
                 <svg v-svg
                     symbol="icon-btn-arrow"
                     size="0 0 24 24"

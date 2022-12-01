@@ -2,9 +2,7 @@
     <section class="portfolio" id="portfolio">
         <div class="container portfolio__container">
             <div class="section-title section-title--dublicated">
-                <h2>Портфолио
-                    <!--<span aria-hidden="true">Портфолио</span>-->
-                </h2>
+                <h2>Портфолио</h2>
             </div>
             <div style="position: relative;">
                 <filter-component :tags="this.tags" :checked="this.checked" @tags="updateCheckedList"></filter-component>
@@ -63,10 +61,6 @@
                 this.count += this.STEP;
         
                 this.fillPortfolioItems();
-        
-                /*setTimeout(() => {
-                    this.hideLoader();
-                }, 1500);*/
             },
     
             fillPortfolioItems() {
