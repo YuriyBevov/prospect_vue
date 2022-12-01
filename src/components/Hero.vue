@@ -2,7 +2,7 @@
   <section class="hero" id="hero">
       <video-background
         :src="require(`@/assets/video/test.mp4`)"
-        style="max-height: 1080px; height: 100vh;"
+        style="max-height: 1080px; height: 100vh; min-height: inherit;"
 
       >
         <div class="container-fluid hero__container">

@@ -7,5 +7,9 @@ module.exports = defineConfig({
         additionalData: `@import "@/assets/styles/_main.scss";`
       }
     }
-  }
+  },
+
+  publicPath: process.env.NODE_ENV === 'production'
+    ? '/prospect_vue/'
+    : '/'
 });
