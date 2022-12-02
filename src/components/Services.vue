@@ -3,7 +3,7 @@
         <div class="container services__container">
             <div class="section-title section-title--dublicated">
                 <h2>Наши услуги</h2>
-                <span aria-hidden="true">Услуги</span>
+                <span aria-hidden="true" data-id="services">Услуги</span>
             </div>
             <ul class="services__list">
                 <li 

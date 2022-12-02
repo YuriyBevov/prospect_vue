@@ -84,35 +84,35 @@
         this.gsap.to( window, {duration: .8, scrollTo: {y: el, offsetY: 50, autoKill: false, ease: 'power0.easeNone'}} );
       },
 
-      /*textTimeline(el) {
+      textTimeline(el, trigger) {
           const tl = this.gsap.timeline({
             scrollTrigger: {
-              trigger: 'el',
+              trigger: trigger,
               start: "top bottom",
               end: "bottom top",
-              scrub: true,
-              markers: true
+              scrub: true
             }
           });
 
           tl
-            .fromTo(el,{ x: '-50%', opacity: 1 }, {
-              x: '100%',
+            .fromTo(el,{ left: '150%', opacity: 1 }, {
+              left: '-100%',
               opacity: 1,
               ease: 'power0.easeNone'
             });
-      }*/
+      }
     },
 
     mounted() {
-      //const body = document.querySelector('body');
-      /*const textElems = document.querySelectorAll('.section-title--dublicated span');
-
+      const textElems = document.querySelectorAll('.section-title--dublicated span');
+      
       if(textElems) {
         textElems.forEach(el => {
-          this.textTimeline(el);
+          const trigger = document.getElementById(el.dataset.id);
+          this.textTimeline(el, trigger);
         });
-      }*/
+      }
+      
     }
   }
 </script>

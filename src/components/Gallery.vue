@@ -126,7 +126,8 @@
             enter(el) {
                 this.gsap.to(el, {
                     opacity: 1,
-                    duration: 1,
+                    duration: .75,
+                    delay: 0.05,
                     ease: 'ease-in'
                 })
             },

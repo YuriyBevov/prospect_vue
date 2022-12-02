@@ -3,7 +3,7 @@
         <div class="container-fluid">
             <div class="section-title section-title--dublicated">
                 <h2>Наружная реклама</h2>
-                <span aria-hidden="true">Наружная реклама</span>
+                <span aria-hidden="true" data-id="features">Наружная реклама</span>
             </div>
 
             <div class="features__accordeon accordeon">

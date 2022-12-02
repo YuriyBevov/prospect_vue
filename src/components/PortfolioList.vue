@@ -46,6 +46,13 @@
       },
     },
 
+    updated() {
+      setTimeout(() => {
+        this.ScrollTrigger.refresh();
+      }, 100);
+      
+    },
+
     watch: {
       initial: function() {
         this.galleryList = this.$props.initial;
