@@ -20,29 +20,29 @@
                 burgerLineMiddle: null,
                 burgerLineBottom: null,
                 burgerLinesTimeline: null,
-                isBurgerClicked: false
             }
         },
 
         methods: {
             changeNavVisibility() {
                 this.$emit('change-nav-visibility');
+            },
 
-                if(!this.isBurgerClicked) {
-                    this.burgerLinesTimeline.play();
-                    this.isBurgerClicked = !this.isBurgerClicked
-                } else {
-                    this.burgerLinesTimeline.reverse();
-                    this.isBurgerClicked = !this.isBurgerClicked
-                }
+            burgerAnimationIn() {
+                this.burgerLinesTimeline.play();
+            },
+
+            burgerAnimationOut() {
+                this.burgerLinesTimeline.reverse();
             }
         },
 
         watch: {
-            state: function(newVal) {
-                if(newVal === false) {
-                    this.burgerLinesTimeline.reverse();
-                    this.isBurgerClicked = !this.isBurgerClicked
+            state: function(active) {
+                if(active) {
+                    this.burgerAnimationIn();
+                } else {
+                    this.burgerAnimationOut();
                 }
             }
         },
