@@ -7,13 +7,14 @@
             <div style="position: relative;">
                 <filter-component :tags="this.tags" :checked="this.checked" @tags="updateCheckedList"></filter-component>
             
-                <PortfolioList :items="this.items" :initial="this.initialArray"></PortfolioList>
+                <PortfolioList :items="this.items" :initial="this.initialArray" @open-gallery="openGallery"></PortfolioList>
                 <div class="portfolio__footer">
                     <LoadMoreButton @load="loadMoreItems" :disabled="this.isLoadMoreButtonDisabled"></LoadMoreButton>
                     <CollapseButton :state="this.isCollapseButtonDisabled" @collapse="collapsePortfolioList"></CollapseButton>
                 </div>
             </div>
         </div>
+        <Gallery v-if="isGalleryOpened" :items="initialArray" :start-index="galleryStartIndex" @close-gallery="closeGallery"/>
     </section>
 </template>
   
@@ -23,6 +24,8 @@
     import PortfolioList from "../components/PortfolioList.vue";
     import LoadMoreButton from "../components/LoadMoreButton.vue";
     import CollapseButton from "../components/CollapseButton.vue";
+    
+    import Gallery from './Gallery.vue'
   
     export default {
         name: 'Portfolio',
@@ -30,7 +33,8 @@
             'filter-component': Filter,
             PortfolioList,
             LoadMoreButton,
-            CollapseButton
+            CollapseButton,
+            Gallery
         },
     
         data() {
@@ -45,10 +49,23 @@
                 count: 0,
                 isLoadMoreButtonDisabled: false,
                 isCollapseButtonDisabled: false,
+                isGalleryOpened: false,
+                galleryStartIndex: 0,
             }
         },
     
         methods: {
+            openGallery(index) {
+                this.isGalleryOpened = true;
+                this.galleryStartIndex = index;
+                this.$emit('body-locker');
+            },
+
+            closeGallery() {
+                this.isGalleryOpened = false;
+                this.$emit('body-locker');
+            },
+
             init() {
                 let tags = [];
         

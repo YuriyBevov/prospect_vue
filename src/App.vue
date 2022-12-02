@@ -6,7 +6,7 @@
 
     <main>
       <Hero @anchor="onClickScrollToAnchor"/>
-      <Portfolio/>
+      <Portfolio @body-locker="bodyLocker"/>
       <Services @anchor="onClickScrollToAnchor"/>
       <Features />
       <Callback @show-modal="setModalState"/>
@@ -16,7 +16,6 @@
     <Footer />
 
     <Modal :is-opened="this.isModalOpened" :active="activeModal" @close="closeModal"/>
-
   </div>
 
 </template>
@@ -105,20 +104,6 @@
     },
 
     mounted() {
-      
-      /*this.ScrollSmoother.create({
-        smooth: 1,
-        //ease: 'linear'
-        ease: 'power0.easeNone',
-        //normalizeScroll: true
-      });*/
-      
-      /*const anchors = document.querySelectorAll('.anchor-link');
-
-      anchors.forEach(anchor => {
-        anchor.addEventListener('click', this.onClickScrollToAnchor);
-      });*/
-
       //const body = document.querySelector('body');
       /*const textElems = document.querySelectorAll('.section-title span');
 
