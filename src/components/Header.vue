@@ -57,7 +57,7 @@
 
       headerInTimeline
         .to(header, {
-          y: '-110%',
+          y: '-50%',
           position: 'fixed',
           opacity: 0,
           duration: 0,
@@ -67,19 +67,20 @@
         .to('.main-header-logo', {
           display: 'block',
           opacity: 1,
+          duration: 0,
         })
         .to('.main-header .contacts', {
-          display: 'flex'
+          display: 'flex',
+          duration: 0,
         })
         .to(header, {
-          duration: .4,
+          duration: .7,
           ease: 'back',
           y: '0',
           opacity: 1,
           backgroundColor: 'rgba(56,181,188,.7)',
         });
     }
-
   }
 </script>
 
