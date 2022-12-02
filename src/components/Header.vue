@@ -15,7 +15,8 @@
         @body-locker="$emit('body-locker')"
         @anchor="setAnchorLink"
       />
-      <Burger @change-nav-visibility="navVisibility = !navVisibility"/>
+      
+      <Burger @change-nav-visibility="navVisibility = !navVisibility" :state="navVisibility"/>
     </div>
   </header>
 </template>
@@ -41,12 +42,47 @@
       setAnchorLink(el) {
         this.$emit('anchor', el)
       }
+    },
+
+    mounted() {
+      const header = document.querySelector('.main-header');
+
+      const headerInTimeline = this.gsap.timeline({
+        scrollTrigger: {
+          trigger: ".hero",
+          start: "bottom top",
+          onLeaveBack: () => headerInTimeline.reverse()
+        }
+      });
+
+      headerInTimeline
+        .to(header, {
+          y: '-110%',
+          position: 'fixed',
+          opacity: 0,
+          duration: 0,
+          padding: '15px 0',
+          backgroundColor: 'transparent',
+        })
+        .to('.main-header-logo', {
+          display: 'block',
+          opacity: 1,
+        })
+        .to('.main-header .contacts', {
+          display: 'flex'
+        })
+        .to(header, {
+          duration: .4,
+          ease: 'back',
+          y: '0',
+          opacity: 1,
+          backgroundColor: 'rgba(56,181,188,.7)',
+        });
     }
 
   }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="scss">
   .main-header {
     position: absolute;

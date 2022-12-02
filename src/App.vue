@@ -1,7 +1,5 @@
 <template>
-
   <div id="app">
-
     <Header @body-locker="bodyLocker" @anchor="onClickScrollToAnchor"/>
 
     <main>
@@ -9,7 +7,7 @@
       <Portfolio @body-locker="bodyLocker"/>
       <Services @anchor="onClickScrollToAnchor"/>
       <Features />
-      <Callback @show-modal="setModalState"/>
+      <Callback @show-modal="openModal"/>
       <Map />
     </main>
 
@@ -17,7 +15,6 @@
 
     <Modal :is-opened="this.isModalOpened" :active="activeModal" @close="closeModal"/>
   </div>
-
 </template>
 
 <script>
@@ -58,7 +55,7 @@
     },
 
     methods: {
-      setModalState(type) {
+      openModal(type) {
         this.isModalOpened = true;
         this.activeModal = type;
       },
@@ -82,9 +79,16 @@
 
       onClickScrollToAnchor(el) {
         this.gsap.to( window, {duration: .8, scrollTo: {y: el, offsetY: 50, autoKill: false, ease: 'power0.easeNone'}} );
-      },
+      }
+    },
 
-      textTimeline(el, trigger) {
+    mounted() {
+      const textElems = document.querySelectorAll('.section-title--dublicated span');
+      
+      if(textElems) {
+        textElems.forEach(el => {
+          const trigger = document.getElementById(el.dataset.id);
+
           const tl = this.gsap.timeline({
             scrollTrigger: {
               trigger: trigger,
@@ -95,21 +99,11 @@
           });
 
           tl
-            .fromTo(el,{ left: '150%', opacity: 1 }, {
+            .fromTo(el, { left: '150%', opacity: 1 }, {
               left: '-100%',
               opacity: 1,
               ease: 'power0.easeNone'
             });
-      }
-    },
-
-    mounted() {
-      const textElems = document.querySelectorAll('.section-title--dublicated span');
-      
-      if(textElems) {
-        textElems.forEach(el => {
-          const trigger = document.getElementById(el.dataset.id);
-          this.textTimeline(el, trigger);
         });
       }
       

@@ -113,7 +113,7 @@
           this.form.name.isValid = true;
           invalidControls.push(true)
         }
-        console.log(this.form.phone.value.length)
+
         if(this.form.phone.value.length !== 19) {
           this.form.phone.isValid = false;
           invalidControls.push(false)
@@ -137,8 +137,8 @@
 
       sendForm() {
         const form = document.querySelector('form');
-        console.log(form, form.method)
         const xhr = new XMLHttpRequest();
+
         xhr.open('POST', form.action);
         xhr.setRequestHeader("Accept", "application/json");
         xhr.onreadystatechange = () => {
@@ -156,9 +156,7 @@
         xhr.send(new FormData(form));
       },
 
-      success() {
-        console.log('SUCCESS');
-        
+      success() {      
         this.form.name.value = '';
         this.form.phone.value = '';
         this.form.rules.value = false;
@@ -166,8 +164,6 @@
       },
 
       error() {
-        console.log('ERROR in callback');
-
         this.$emit('show-modal', 'ERROR');
       },
     },

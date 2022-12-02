@@ -1,13 +1,6 @@
 <template>
     <transition appear @before-enter="beforeEnter" @enter="enter">
         <nav class="nav" v-if="this.$props.isOpened" @click="onClickCloseNav" >
-            <button class="nav__closer" aria-label="Закрыть меню" @click="$emit('change-nav-visibility')">
-                <svg v-svg
-                    symbol="icon-close"
-                    size="0 0 36 36"
-                ></svg>
-            </button>
-            
             <ul class="nav__list">
                 <li class="nav__list-item" v-for="(item,index) of navList" :key="index" :data-index="index">
                     <a 
@@ -67,26 +60,22 @@
                     ease: 'ease-in'
                 })
 
-                /*this.gsap.fromTo('.nav__list-item', {
+                this.gsap.fromTo('.nav__list-item', {
                     y: 50,
-                    //opacity: 0
+                    opacity: 0
                 }, {
                     y: 0,
-                    //opacity: 1,
+                    opacity: 1,
                     duration: 0.3,
                     stagger: 0.05,
                     ease: 'ease-in'
-                }, "-=0.4");*/
+                });
             },
         },
 
         watch: {
             isOpened: function(newVal) {
                 this.$emit('body-locker');
-
-                if(!!newVal) {
-                    
-                }
             }
         }
     }
@@ -103,19 +92,6 @@
         background-color: rgba(0,0,0,.6);
 
         overflow-y: auto;
-        
-        &__closer {
-            position: absolute;
-            top: 30px;
-            right: 30px;
-            z-index: 10;
-            
-            svg {
-                fill: var(--white);
-            }
-
-            cursor: pointer;
-        }
 
         &__list {
             @extend .flex-column;

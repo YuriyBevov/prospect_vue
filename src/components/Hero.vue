@@ -36,6 +36,7 @@
           <div class="hero__logo">
             <img :src="require(`@/assets/images/hero-logo.svg`)" alt="Логотип" width="900" height="660">
           </div>
+          
           <a @click.prevent="$emit('anchor', '#portfolio')" class="anchor-link hero__arrow-down hidden" href="#" data-scroll-to="portfolio" aria-label="Скролл вниз" style="opacity: 1;">
             <svg v-svg
               symbol="icon-hero-arrow"

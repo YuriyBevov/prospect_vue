@@ -145,20 +145,22 @@
         height: 100vh;
         max-height: 100vh;
         background-color: rgba(0, 0, 0, 0.98);
-        padding: 50px;
+        padding: 0px;
         z-index: 105;
+        outline: 1px solid white;
     }
 
     .gallery-closer {
         position: absolute;
         top: 30px;
-        right: 30px;
+        right: 23px;
 
         svg {
             fill: var(--primary);
         }
 
         cursor: pointer;
+        z-index: 10;
     }
 
     .gallery-content {
