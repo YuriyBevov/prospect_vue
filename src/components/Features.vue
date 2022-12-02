@@ -2,9 +2,8 @@
     <section class="features" id="features">
         <div class="container-fluid">
             <div class="section-title section-title--dublicated">
-                <h2>Наружная реклама
-                    <!--<span aria-hidden="true">Наружная реклама</span>-->
-                </h2>
+                <h2>Наружная реклама</h2>
+                <span aria-hidden="true">Наружная реклама</span>
             </div>
 
             <div class="features__accordeon accordeon">

@@ -1,5 +1,7 @@
 .section-title {
+  position: relative;
   @extend .flex-wrap;
+
 
   margin-bottom: 80px;
 
@@ -30,6 +32,23 @@
     }
 
     margin: 0 auto;
+  }
+
+  &--dublicated {
+    margin-top: 40px;
+    span {
+      display: block;
+      position: absolute;
+      top: -100%;
+      left: 150%;
+      font-size: 128px;
+      font-weight: 700;
+      line-height: 1.2;
+      z-index: -1;
+      color: var(--secondary);
+      white-space: nowrap;
+      outline: 1px solid red;
+    }
   }
 
   /*&--dublicated {

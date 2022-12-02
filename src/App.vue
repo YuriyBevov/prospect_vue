@@ -87,16 +87,17 @@
       /*textTimeline(el) {
           const tl = this.gsap.timeline({
             scrollTrigger: {
-              trigger: el,
+              trigger: 'el',
               start: "top bottom",
               end: "bottom top",
-              scrub: true
+              scrub: true,
+              markers: true
             }
           });
 
           tl
-            .fromTo(el,{ x: '100vw', opacity: 0 }, {
-              x: '-100vw',
+            .fromTo(el,{ x: '-50%', opacity: 1 }, {
+              x: '100%',
               opacity: 1,
               ease: 'power0.easeNone'
             });
@@ -105,7 +106,7 @@
 
     mounted() {
       //const body = document.querySelector('body');
-      /*const textElems = document.querySelectorAll('.section-title span');
+      /*const textElems = document.querySelectorAll('.section-title--dublicated span');
 
       if(textElems) {
         textElems.forEach(el => {

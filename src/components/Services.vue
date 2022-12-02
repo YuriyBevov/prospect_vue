@@ -2,9 +2,8 @@
     <section class="services" id="services">
         <div class="container services__container">
             <div class="section-title section-title--dublicated">
-                <h2>Наши услуги
-                    <!--<span aria-hidden="true">Услуги</span>-->
-                </h2>
+                <h2>Наши услуги</h2>
+                <span aria-hidden="true">Услуги</span>
             </div>
             <ul class="services__list">
                 <li 

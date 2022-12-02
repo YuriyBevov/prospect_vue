@@ -10,6 +10,6 @@ module.exports = defineConfig({
   },
 
   publicPath: process.env.NODE_ENV === 'production'
-    ? '/dist/'
+    ? '/prospect_vue/dist/'
     : '/'
 });

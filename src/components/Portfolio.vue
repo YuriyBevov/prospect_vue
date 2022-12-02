@@ -3,6 +3,7 @@
         <div class="container portfolio__container">
             <div class="section-title section-title--dublicated">
                 <h2>Портфолио</h2>
+                <span aria-hidden="true">Портфолио</span>
             </div>
             <div style="position: relative;">
                 <filter-component :tags="this.tags" :checked="this.checked" @tags="updateCheckedList"></filter-component>

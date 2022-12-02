@@ -37,17 +37,12 @@ body {
 
 section {
   z-index: 10;
+  overflow: hidden;
 }
 
 footer {
   margin-top: auto;
   z-index: 10;
-}
-
-.section-title--dublicated {
-  span {
-    z-index: -1;
-  }
 }
 
 a {
