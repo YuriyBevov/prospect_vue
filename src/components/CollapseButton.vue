@@ -50,7 +50,7 @@
     position: absolute;
     bottom: 0;
     right: 0;
-    width: 58px !important;
+    width: 58px;
     height: 58px;
     min-width: fit-content;
     padding: 0;

@@ -7,94 +7,17 @@
                 </h2>
             </div>
             <ul class="services__list">
-                <li class="services__list-item">
-                    <img :src="require('@/assets/images/feature-item-bg-1@1x.jpg')"/>
+                <li 
+                    class="services__list-item"
+                    v-for="(service, index) in services" :key="index"
+                >
+                    <img :src="require(`@/assets/images/${service.img}@1x.jpg`)"/>
                     <div class="services__list-item-content">
                         <svg v-svg
-                            symbol="icon-feature-1"
+                            :symbol="service.icon"
                             size="0 0 220 180"
                         ></svg>
-                        <span>Наружная реклама</span>
-                    </div>
-                </li>
-                <li class="services__list-item">
-                    <img :src="require('@/assets/images/feature-item-bg-2@1x.jpg')"/>
-                    <div class="services__list-item-content">
-                        <svg v-svg
-                            symbol="icon-feature-2"
-                            size="0 0 220 180"
-                        ></svg>
-                        <span>Широкоформатная печать</span>
-                    </div>
-                </li>
-                <li class="services__list-item">
-                    <img :src="require('@/assets/images/feature-item-bg-3@1x.jpg')"/>
-                    <div class="services__list-item-content">
-                        <svg v-svg
-                            symbol="icon-feature-3"
-                            size="0 0 220 180"
-                        ></svg>
-                        <span>Интерьерная печать</span>
-                    </div>
-                </li>
-                <li class="services__list-item">
-                    <img :src="require('@/assets/images/feature-item-bg-4@1x.jpg')"/>
-                    <div class="services__list-item-content">
-                        <svg v-svg
-                            symbol="icon-feature-4"
-                            size="0 0 220 180"
-                        ></svg>
-                        <span>Рекламные конструкции</span>
-                    </div>
-                </li>
-                <li class="services__list-item">
-                    <img :src="require('@/assets/images/feature-item-bg-5@1x.jpg')"/>
-                    <div class="services__list-item-content">
-                        <svg v-svg
-                            symbol="icon-feature-5"
-                            size="0 0 220 180"
-                        ></svg>
-                        <span>Торговое оборудование</span>
-                    </div>
-                </li>
-                <li class="services__list-item">
-                    <img :src="require('@/assets/images/feature-item-bg-6@1x.jpg')"/>
-                    <div class="services__list-item-content">
-                        <svg v-svg
-                            symbol="icon-feature-6"
-                            size="0 0 220 180"
-                        ></svg>
-                        <span>Световые панели</span>
-                    </div>
-                </li>
-                <li class="services__list-item">
-                    <img :src="require('@/assets/images/feature-item-bg-7@1x.jpg')"/>
-                    <div class="services__list-item-content">
-                        <svg v-svg
-                            symbol="icon-feature-7"
-                            size="0 0 220 180"
-                        ></svg>
-                        <span>Плоттерная резка</span>
-                    </div>
-                </li>
-                <li class="services__list-item">
-                    <img :src="require('@/assets/images/feature-item-bg-8@1x.jpg')"/>
-                    <div class="services__list-item-content">
-                        <svg v-svg
-                            symbol="icon-feature-8"
-                            size="0 0 220 180"
-                        ></svg>
-                        <span>Фрезеровка</span>
-                    </div>
-                </li>
-                <li class="services__list-item">
-                    <img :src="require('@/assets/images/feature-item-bg-9@1x.jpg')"/>
-                    <div class="services__list-item-content">
-                        <svg v-svg
-                            symbol="icon-feature-9"
-                            size="0 0 220 180"
-                        ></svg>
-                        <span>Согласование рекламы</span>
+                        <span>{{service.title}}</span>
                     </div>
                 </li>
             </ul>
@@ -110,7 +33,23 @@
 
 <script>
     export default {
-        name: 'Services'
+        name: 'Services',
+
+        data() {
+            return {
+                services: [
+                    { title: 'Наружная реклама', icon: 'icon-feature-1', img: 'feature-item-bg-1' },
+                    { title: 'Широкоформатная печать', icon: 'icon-feature-2', img: 'feature-item-bg-2' },
+                    { title: 'Интерьерная печать', icon: 'icon-feature-3', img: 'feature-item-bg-3' },
+                    { title: 'Рекламные конструкции', icon: 'icon-feature-4', img: 'feature-item-bg-4' },
+                    { title: 'Торговое оборудование', icon: 'icon-feature-5', img: 'feature-item-bg-5' },
+                    { title: 'Световые панели', icon: 'icon-feature-6', img: 'feature-item-bg-6' },
+                    { title: 'Плоттерная резка', icon: 'icon-feature-7', img: 'feature-item-bg-7' },
+                    { title: 'Фрезеровка', icon: 'icon-feature-8', img: 'feature-item-bg-8' },
+                    { title: 'Согласование рекламы', icon: 'icon-feature-9', img: 'feature-item-bg-9' },
+                ]
+            }
+        }
     }
 </script>
 

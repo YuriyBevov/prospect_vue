@@ -69,16 +69,16 @@
                     ease: 'ease-in'
                 })
 
-                this.gsap.fromTo('.nav__list-item', {
+                /*this.gsap.fromTo('.nav__list-item', {
                     y: 50,
-                    opacity: 0
+                    //opacity: 0
                 }, {
                     y: 0,
-                    opacity: 1,
+                    //opacity: 1,
                     duration: 0.3,
                     stagger: 0.05,
                     ease: 'ease-in'
-                }, "-=0.4");
+                }, "-=0.4");*/
             },
         },
 

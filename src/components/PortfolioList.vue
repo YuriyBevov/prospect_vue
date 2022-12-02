@@ -6,11 +6,11 @@
         :key="index"
       >
         <a href="#" @click="showGalleryModal" v-if="item.type === 'image'" :data-id="item.id" aria-label="Посмотреть">
-          <img :src="require(`@/assets/images/${item.source}@1x.jpg`)"/>
+          <img loading="lazy" :src="require(`@/assets/images/${item.source}@1x.jpg`)"/>
         </a>
 
         <a href="#" @click="showGalleryModal" v-if="item.type === 'video'" :data-id="item.id" aria-label="Посмотреть">
-          <video controls muted loop playsinline :poster="require(`@/assets/images/hero-logo.svg`)" class="portfolio-video">
+          <video preload="none" controls muted loop playsinline :poster="require(`@/assets/images/hero-logo.svg`)" class="portfolio-video" disablePictureInPicture="true">
             <source :src="require(`@/assets/video/${item.source}.mp4`)" type='video/mp4'>
             <source :src="require(`@/assets/video/${item.source}.webm`)" type='video/webm'>
           </video>
@@ -18,7 +18,7 @@
       </li>
 
       <li v-if="!this.$props.items.length" class="portfolio__list-item portfolio__list-item--empty">
-        <img :src="require(`@/assets/images/hero-logo.svg`)" width="100%" height="400"/>
+        <img loading="lazy" :src="require(`@/assets/images/hero-logo.svg`)" width="100%" height="400"/>
         <p>Кажется, вы не выбрали ни одного параметра фильтрации...</p>
       </li>
     </ul>
