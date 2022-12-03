@@ -57,13 +57,13 @@
 
       headerInTimeline
         .to(header, {
-          y: '-50%',
+          //y: '-50%',
           position: 'fixed',
           opacity: 0,
           duration: 0,
           padding: '15px 0',
           backgroundColor: 'transparent',
-          zIndex: -1,
+          //zIndex: -1,
         })
         .to('.main-header-logo', {
           display: 'block',
@@ -74,11 +74,11 @@
           display: 'flex',
           duration: 0,
         })
-        .to(header, {zIndex: 1})
+        //.to(header, {zIndex: 99})
         .to(header, {
-          duration: 1,
-          ease: 'back',
-          y: '0',
+          duration: .7,
+          ease: 'linear',
+          //y: '0',
           opacity: 1,
           backgroundColor: 'rgba(56,181,188,.7)',
         });

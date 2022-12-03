@@ -104,7 +104,7 @@
       width: 100%;
       height: 100%;
       margin-bottom: 50px;
-      z-index: 4;
+      z-index: 98;
 
       img {
         width: 75%;
@@ -115,6 +115,7 @@
         transform: translate3d(-50%, -50%, -1px);
         max-width: 1000px;
         will-change: auto;
+        z-index: 98;
       }
     }
 
