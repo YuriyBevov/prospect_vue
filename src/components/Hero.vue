@@ -104,7 +104,7 @@
       width: 100%;
       height: 100%;
       margin-bottom: 50px;
-      z-index: 3;
+      z-index: 4;
 
       img {
         width: 75%;
@@ -162,28 +162,10 @@
 
         width: fit-content;
         height: 50px;
-
         padding: 10px;
-
         border-radius: 4px;
         opacity: 0;
-
         color: var(--dark);
-
-        /*transition: opacity var(--main-transition);
-
-        &::before {
-          position: absolute;
-          top: 50%;
-          left: -5px;
-          transform: translateY(-50%) rotate(45deg);
-          content: "";
-          width: 20px;
-          height: 20px;
-          border-radius: 4px;
-          background-color: var(--white);
-          z-index: -1;
-        }*/
 
         span {
           display: block;
@@ -208,37 +190,10 @@
 
       svg {
         fill: var(--white);
+        margin-bottom: -5px;
       }
 
       z-index: 4;
-
-      /*svg {
-        fill: var(--white);
-        margin-bottom: -5px;
-        animation: heroArrowDown 2.1s linear infinite;
-
-        &:nth-child(1) {
-          animation-delay: .7s;
-        }
-
-        &:nth-child(2) {
-          animation-delay: 1.4s;
-        }
-      }*/
     }
   }
-
-  /*@keyframes heroArrowDown {
-    0% {
-      opacity: 0;
-    }
-
-    50% {
-      opacity: 1;
-    }
-
-    100% {
-      opacity: 0;
-    }
-  }*/
 </style>

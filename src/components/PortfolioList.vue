@@ -50,7 +50,6 @@
       setTimeout(() => {
         this.ScrollTrigger.refresh();
       }, 100);
-      
     },
 
     watch: {

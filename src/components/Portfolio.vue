@@ -141,14 +141,6 @@
         mounted() {
             this.initialArray = [...json.data];
             this.init();
-        },
-
-        watch: {
-            /*items: function() {
-                setTimeout(() => {
-                    this.ScrollTrigger.refresh();
-                }, 100);
-            }*/
         }
     }
 </script>

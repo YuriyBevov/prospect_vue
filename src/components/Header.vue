@@ -4,10 +4,8 @@
       <a class="main-header-logo" href="index.html" aria-label="Обновить">
         <img :src="require(`@/assets/images/main-logo.svg`)" alt="Логотип" width="81" height="50">
       </a>
-      <div class="contacts">
-        <a href="tel:+78126426449" aria-label="Позвонить">+7 (812) 642-64-49</a>
-        <a href="mailto:pro-rek@info.ru" aria-label="Отправить письмо на почту">pro-rek@info.ru</a>
-      </div>
+
+      <Contacts />
       
       <Nav 
         :is-opened="navVisibility" 
@@ -23,13 +21,15 @@
 
 <script>
   import Burger from './Burger.vue'
+  import Contacts from './Contacts.vue'
   import Nav from './Nav.vue'
 
   export default {
     name: 'Header',
     components: {
       Burger,
-      Nav
+      Nav,
+      Contacts
     },
 
     data() {
@@ -63,6 +63,7 @@
           duration: 0,
           padding: '15px 0',
           backgroundColor: 'transparent',
+          zIndex: -1,
         })
         .to('.main-header-logo', {
           display: 'block',
@@ -73,8 +74,9 @@
           display: 'flex',
           duration: 0,
         })
+        .to(header, {zIndex: 1})
         .to(header, {
-          duration: .7,
+          duration: 1,
           ease: 'back',
           y: '0',
           opacity: 1,
