@@ -1,23 +1,29 @@
 <template>
+  <transition appear @before-enter="beforeEnter" @enter="enter"></transition-group>
   <div id="app">
-    <Header @body-locker="bodyLocker" @anchor="onClickScrollToAnchor"/>
+    
+      <Loader :is-active="isLoaderActive"/>
+      <Header @body-locker="bodyLocker" @anchor="onClickScrollToAnchor"/>
 
-    <main>
-      <Hero @anchor="onClickScrollToAnchor"/>
-      <Portfolio @body-locker="bodyLocker"/>
-      <Services @anchor="onClickScrollToAnchor"/>
-      <Features />
-      <Callback @show-modal="openModal"/>
-      <Map />
-    </main>
+      <main>
+        <Hero @anchor="onClickScrollToAnchor" @hide-loader="hideLoader"/>
+        <Portfolio @body-locker="bodyLocker"/>
+        <Services @anchor="onClickScrollToAnchor"/>
+        <Features />
+        <Callback @show-modal="openModal"/>
+        <Map />
+      </main>
 
-    <Footer />
+      <Footer />
 
-    <Modal :is-opened="this.isModalOpened" :active="activeModal" @close="closeModal"/>
+      <Modal :is-opened="this.isModalOpened" :active="activeModal" @close="closeModal"/>
+    
   </div>
+</transition>
 </template>
 
 <script>
+  import Loader from './components/Loader.vue'
   import Header from './components/Header.vue'
   import Hero from './components/Hero.vue'
   import Portfolio from './components/Portfolio.vue'
@@ -35,6 +41,7 @@
     name: 'App',
     
     components: {
+      Loader,
       Header,
       Hero,
       Portfolio,
@@ -50,11 +57,29 @@
       return {
         locker: false,
         isModalOpened: false,
-        activeModal: null
+        activeModal: null,
+        isLoaderActive: true
       }
     },
 
     methods: {
+      beforeEnter(el) {
+        el.style.opacity = 0;
+      },
+
+      enter(el) {
+        this.gsap.to(el, {
+          opacity: 1,
+          duration: 1.5,
+          ease: 'linear'
+        })
+      },
+
+      hideLoader() {
+        this.isLoaderActive = false;
+        this.bodyLocker();
+      },
+
       openModal(type) {
         this.isModalOpened = true;
         this.activeModal = type;
@@ -81,8 +106,13 @@
         this.gsap.to( window, {duration: .8, scrollTo: {y: el, offsetY: 50, autoKill: false, ease: 'power0.easeNone'}} );
       }
     },
+    beforeMount() {
+      console.log('app before mount');
+      this.bodyLocker();
+    },
 
     mounted() {
+      console.log('app mount');
       const textElems = document.querySelectorAll('.section-title--dublicated span');
       
       if(textElems) {

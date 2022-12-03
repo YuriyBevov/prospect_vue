@@ -37,12 +37,6 @@
 </template>
 
 <script>
-    import {gsap} from 'gsap';
-    import {ScrollTrigger} from 'gsap/ScrollTrigger';
-    import {ScrollToPlugin} from 'gsap/ScrollToPlugin';
-
-    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
-
     export default {
         name: 'Features',
         data() {
@@ -66,7 +60,11 @@
                         body: {
                             text: [
                             'Качественное размещение наружной рекламы подразумевает гибкость, ясное понимание того, что нужно заказчику. Безусловно, именно желание человека, дающего рекламу, играет для нас первостепенную роль.',
-                            'Советы с нашей стороны носят рекомендательный характер, но они построены на основе тех знаний, что мы имеем в области производства наружной рекламы.'
+                            'Советы с нашей стороны носят рекомендательный характер, но они построены на основе тех знаний, что мы имеем в области производства наружной рекламы.',
+                            'Качественное размещение наружной рекламы подразумевает гибкость, ясное понимание того, что нужно заказчику. Безусловно, именно желание человека, дающего рекламу, играет для нас первостепенную роль.',
+                            'Советы с нашей стороны носят рекомендательный характер, но они построены на основе тех знаний, что мы имеем в области производства наружной рекламы.',
+                            'Качественное размещение наружной рекламы подразумевает гибкость, ясное понимание того, что нужно заказчику. Безусловно, именно желание человека, дающего рекламу, играет для нас первостепенную роль.',
+                            'Советы с нашей стороны носят рекомендательный характер, но они построены на основе тех знаний, что мы имеем в области производства наружной рекламы.',
                             ],
                             img: 'inside'
                         }
@@ -131,9 +129,6 @@
                 return require(`@/assets/images/${img}.jpg`);
             },
 
-            scrollToTop(target) {
-                gsap.to(window, {duration: 0, scrollTo: {y: target, offsetY: 150, autoKill: true}, ease: "power0.easeNone"});
-            },
 
             calculatePos(fields, target) {
                 if( this.OFFSET_WIDTH !== null ) {
@@ -152,7 +147,7 @@
                         fields.forEach((field,j) => {
                             if(j > i) {
                                 if(!field.classList.contains('transitioned')) {
-                                        gsap.to(field, {
+                                        this.gsap.to(field, {
                                         duration: 0.5,
                                         delay: 0.2,
                                         left: 'calc(100% - ' + this.OFFSET_WIDTH * (fields.length - j) + 'px)',
@@ -177,7 +172,7 @@
                             fields.forEach((field,j) => {
                                 if(j < i + 1 ) {
                                     if(field.classList.contains('transitioned')) {
-                                        gsap.to(field, {
+                                        this.gsap.to(field, {
                                             duration: 0.5,
                                             delay: 0.2,
                                             left: this.OFFSET_WIDTH * j + 'px',
@@ -223,21 +218,20 @@
             onClickOpenAccordeonField(evt) {
                 const target = evt.currentTarget.parentNode;
 
-                if(window.innerWidth < 961) {
-                    setTimeout(() => {
-                        this.scrollToTop(target);
-                    }, 50);
-                }
-
                 if(!target.classList.contains('active')) {
                     this.calculatePos(this.fields, target);
 
                     const body = target.querySelector('.accordeon__body');
-                    gsap.from(body, {
-                        duration: 0.7,
+                    this.gsap.from(body, {
+                        duration: 0.5,
                         opacity: 0,
                         ease: 'power0.easeNone'
                     });
+
+                    if(window.innerWidth < 961) {
+                        this.gsap.to(window, {duration: 0.3, delay: .1, scrollTo: {y: target, offsetY: 150, autoKill: true}, ease: "power0.easeNone"});
+                        this.ScrollTrigger.refresh();
+                    }
                 }
             },
 

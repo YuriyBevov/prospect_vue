@@ -3,6 +3,7 @@
       <video-background 
           :src="require(`@/assets/video/test.mp4`)"
           style="max-height: 1080px; height: 100vh; min-height: inherit;"
+          @ready="hideLoader"
       >
 
         <div class="container-fluid hero__container">
@@ -21,10 +22,10 @@
                 symbol="icon-phone"
                 size="0 0 24 24"
               ></svg>
-              <div class="contact-helper"><span>+7 812 642-64-49</span></div>
+              <div class="contact-helper"><span>+7(812)642-64-49</span></div>
             </a>
               
-              <a class="anchor-link" href="#" aria-label="Оставить заявку" data-scroll-to="callback">
+              <a class="anchor-link" href="#" aria-label="Оставить заявку" data-scroll-to="callback" @click.prevent="$emit('anchor', '#callback')">
                 <svg v-svg
                   symbol="icon-help"
                   size="0 0 24 24"
@@ -59,13 +60,26 @@
 <script>
 
   export default {
-    name: 'Hero'
+    name: 'Hero',
+
+    data() {
+      return {
+        isVideoLoaded: false
+      }
+    },
+
+    methods: {
+      hideLoader() {
+        if(!this.isVideoLoaded) {
+          this.$emit('hide-loader');
+          this.isVideoLoaded = true;
+        }
+      }
+    }
   }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-
   .video-background {
     width: 100%;
     max-width: 1920px;
