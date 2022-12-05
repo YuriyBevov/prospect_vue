@@ -9,6 +9,10 @@ import ScrollTrigger from "gsap/ScrollTrigger";
 import {ScrollSmoother} from 'gsap/ScrollSmoother';
 import {ScrollToPlugin} from 'gsap/ScrollToPlugin';
 
+import FlatSurfaceShader from 'vue-flat-surface-shader'
+ 
+Vue.use(FlatSurfaceShader)
+
 Vue.use(Plugin);
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother, ScrollToPlugin);

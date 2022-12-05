@@ -58,7 +58,7 @@
         locker: false,
         isModalOpened: false,
         activeModal: null,
-        isLoaderActive: true
+        isLoaderActive: false
       }
     },
 
@@ -106,13 +106,12 @@
         this.gsap.to( window, {duration: .8, scrollTo: {y: el, offsetY: 50, autoKill: false, ease: 'power0.easeNone'}} );
       }
     },
+    
     beforeMount() {
-      console.log('app before mount');
-      this.bodyLocker();
+      //this.bodyLocker();
     },
 
     mounted() {
-      console.log('app mount');
       const textElems = document.querySelectorAll('.section-title--dublicated span');
       
       if(textElems) {

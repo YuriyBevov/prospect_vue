@@ -1,11 +1,63 @@
 <template>
   <section class="hero" id="hero">
-      <video-background 
+    <flat-surface-shader class="shader"
+      type="canvas" 
+      :light="{ambient: '#2c5e61', diffuse: '#2c5e61', draw: false, count: 2, zOffset: 100}" 
+      :mesh="{ambient: '#38b5bc', diffuse: '#ebebeb', segments: 12, slices: 6, width: 1.2, height: 1.2, depth: 10, xRange: 0.8, yRange: 0.1, speed: 0.001}">
+    </flat-surface-shader>
+
+    <div class="container-fluid hero__container">
+      <h1 class="visually-hidden">ООО "Проспект". Производство наружной рекламы, Санкт-Петербург.</h1>
+      
+      <div class="hero__action">
+        <a href="mailto:pro-rek@info.ru" aria-label="Написать на почту">
+          <svg v-svg
+            symbol="icon-mail"
+            size="0 0 24 24"
+          ></svg>
+          <div class="contact-helper"><span>pro-rek@info.ru</span></div>
+        </a>
+        <a href="tel:+78126426449" aria-label="Связаться по телефону">
+          <svg v-svg
+            symbol="icon-phone"
+            size="0 0 24 24"
+          ></svg>
+          <div class="contact-helper"><span>+7(812)642-64-49</span></div>
+        </a>
+          
+          <a class="anchor-link" href="#" aria-label="Оставить заявку" data-scroll-to="callback" @click.prevent="$emit('anchor', '#callback')">
+            <svg v-svg
+              symbol="icon-help"
+              size="0 0 24 24"
+            ></svg>
+          <div class="contact-helper"><span>Оставить заявку</span></div>
+        </a>
+      </div>
+
+      <div class="hero__logo">
+        <img :src="require(`@/assets/images/hero-logo.svg`)" alt="Логотип" width="900" height="660">
+      </div>
+      
+      <a @click.prevent="$emit('anchor', '#portfolio')" class="anchor-link hero__arrow-down hidden" href="#" data-scroll-to="portfolio" aria-label="Скролл вниз" style="opacity: 1;">
+        <svg v-svg
+          symbol="icon-hero-arrow"
+          size="0 0 40 16"
+        ></svg>
+        <svg v-svg
+          symbol="icon-hero-arrow"
+          size="0 0 40 16"
+        ></svg>
+        <svg v-svg
+          symbol="icon-hero-arrow"
+          size="0 0 40 16"
+        ></svg>
+      </a>
+    </div>
+      <!-- <video-background 
           :src="require(`@/assets/video/test.mp4`)"
           style="max-height: 1080px; height: 100vh; min-height: inherit;"
           @ready="hideLoader"
       >
-
         <div class="container-fluid hero__container">
           <h1 class="visually-hidden">ООО "Проспект". Производство наружной рекламы, Санкт-Петербург.</h1>
           
@@ -53,7 +105,7 @@
             ></svg>
           </a>
         </div>
-      </video-background>
+      </video-background> -->
   </section>
 </template>
 
@@ -69,21 +121,29 @@
     },
 
     methods: {
-      hideLoader() {
+      /*hideLoader() {
         if(!this.isVideoLoaded) {
           this.$emit('hide-loader');
           this.isVideoLoaded = true;
         }
-      }
+      }*/
     }
   }
 </script>
 
 <style scoped lang="scss">
-  .video-background {
+  .shader {
+      width: 100vw;
+      height: 100vh;
+      min-width: 1920px;
+      min-height: 1080px;
+      overflow: hidden;
+  }
+
+  /*.video-background {
     width: 100%;
     max-width: 1920px;
-  }
+  }*/
 
   .hero {
     position: relative;
@@ -108,7 +168,9 @@
     }
 
     &__container {
-      position: relative;
+      position: absolute;
+      top: 0;
+      left: 0;
 
       @extend .flex-column;
       height: 100%;

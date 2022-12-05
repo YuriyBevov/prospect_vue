@@ -12,6 +12,7 @@
     "imask": "^6.4.3",
     "swiper-vue2": "^1.0.10",
     "vue": "^2.6.14",
+    "vue-flat-surface-shader": "^1.0.5",
     "vue-svg-sprite": "^1.4.3",
     "vue-yandex-maps": "^0.11.13"
   },
