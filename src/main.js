@@ -11,7 +11,7 @@ import {ScrollToPlugin} from 'gsap/ScrollToPlugin';
 
 import FlatSurfaceShader from 'vue-flat-surface-shader'
  
-Vue.use(FlatSurfaceShader)
+Vue.use(FlatSurfaceShader);
 
 Vue.use(Plugin);
 

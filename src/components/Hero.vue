@@ -135,9 +135,6 @@
   .shader {
       width: 100vw;
       height: 100vh;
-      min-width: 1920px;
-      min-height: 1080px;
-      overflow: hidden;
   }
 
   /*.video-background {
