@@ -3,7 +3,7 @@
     <flat-surface-shader class="shader"
       type="canvas" 
       :light="{ambient: '#2c5e61', diffuse: '#2c5e61', draw: false, count: 2, zOffset: 100}" 
-      :mesh="{ambient: '#38b5bc', diffuse: '#ebebeb', segments: 10, slices: 6, width: 1.2, height: 1.2, depth: 10, xRange: 0.8, yRange: 0.1, speed: 0.001}">
+      :mesh="{ambient: '#38b5bc', diffuse: '#ebebeb', segments: 12, slices: 7, width: 1.8, height: 1.8, depth: 10, xRange: 0.25, yRange: 0.23, speed: 0.001}">
     </flat-surface-shader>
 
     <div class="container-fluid hero__container">
@@ -134,7 +134,7 @@
 <style lang="scss">
   .shader {
       width: 100%;
-      min-width: 600px;
+      min-width: 960px;
       height: 100%;
       min-height: 438px;
 
